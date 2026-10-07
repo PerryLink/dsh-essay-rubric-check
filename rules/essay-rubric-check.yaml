@@ -1,0 +1,165 @@
+# 作文量表评分核对 规则库
+#
+# 规则数据与代码分离：替换本文件即可切换规则集版本，无需改动 TypeScript。
+#
+# 条款引用纪律（由 shared/ruleset.ts 强制校验）：
+#   - 每条规则必须写全 document / number / clause / excerpt / kind / source，
+#     且 excerpt 必须是逐字摘录，不得改写。
+#   - kind: direct                       条款直接规定了所检查的要求
+#   - kind: derived-from-principle       条款未直接规定，仅能由原则性条款推论（severity 最多 warn）
+#   - kind: institutional-configuration 阈值出自本机构配置（severity 最多 info）
+#
+# ⚠️⚠️ 本规则库的诚实说明：**excerpt 一律不是引文。**
+#   本插件核对的是"作文量表评分表"的**算术与证据定位**：
+#     评分项与等级描述是否填写、分值是否可解析、得分是否不超过该项分值、
+#     各维度得分合计是否等于总分、**每个得分是否给出原文定位**、
+#     评分人是否填写、评分项是否重复、是否残留模板占位符。
+#   其规范载体是**《义务教育语文课程标准》**与**《普通高中语文课程标准》**
+#   中的写作评价要求，以及**中高考作文评分细则**与各校自行制定的量表。
+#   **核查未取得这些文件的逐字条文，也未内置任何量表**，
+#   故每条 excerpt 如实写明，kind 降为 derived-from-principle（封顶 warn）。
+#
+# ⚠️⚠️ 另一条**必须保留**的边界：**本插件绝不判定作文写得好不好、
+#   分数打得准不准、评语是否恰当、是否应当复议**。
+#   那是评分者的专业判断，也是阅卷质量管理的实质内容。
+#   → 本插件只核对**量表自身的算术**与**评分是否留下了原文依据**。
+#     它**看不到作文本身**，因此**发现不了"分打得不符合这篇作文"**——
+#     这是它最重要的能力边界。
+#   → ⚠️ **"是否需要原文定位"可由本机构口径决定**：出厂要求每个得分都给出定位，
+#     因为"评分可复核"是量表评分的核心要求；若本机构对某些评分项不要求定位，
+#     请把该项的分值设为 0 或停用本条规则。
+
+plugin: dsh-essay-rubric-check
+version: "2026.1"
+
+rules:
+  - id: ER-001
+    title: 每个评分项都应填写名称与等级描述
+    severity: warn
+    basis:
+      document: 《普通高中语文课程标准》
+      number: 现行版本与条号本次未核实
+      clause: 关于写作评价要求的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: presenceAny
+          fields: ["criterion","levelDesc"]
+          fix: 补填评分项与等级描述；本条只核对是否填写，不判断量表是否合理
+    note: >-
+      量表评分的**可复核性**来自"这一项按什么标准给几分"：
+      缺少等级描述，分数就成了评分者的自由裁量。本次未取得明文条号，故封顶 warn。
+      本条只核对"至少填了一个"，**不判断该量表的分项设置是否科学、等级描述是否恰当**。
+
+  - id: ER-002
+    title: 得分不应超过该项分值
+    severity: warn
+    basis:
+      document: 《普通高中语文课程标准》
+      number: 现行版本与条号本次未核实
+      clause: 关于写作评价的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: fieldComparison
+          leftField: score
+          rightField: maxScore
+          relation: lte
+          fix: 得分不应超过该项分值；核对两项的填写
+    note: >-
+      得分不得超过该项分值，是量表评分的**构造前提**。本次未取得明文条号，故封顶 warn。
+      本条只做数值比较，**不判断该分数与该篇作文是否相称**——本插件看不到作文本身。
+
+  - id: ER-003
+    title: 各维度得分合计应等于总分
+    severity: warn
+    basis:
+      document: 《普通高中语文课程标准》
+      number: 现行版本与条号本次未核实
+      clause: 关于写作评价的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: formula
+          resultField: totalScore
+          expression: {"op":"sum","fields":["dimensionRef"]}
+          tolerance: 0.01
+    note: >-
+      各项得分之和应等于量表总分，这是**算术恒等式**。本次未取得明文条号，故封顶 warn。
+      ⚠️ ⚠️ **本条的表达式配置是有意留白的**：引擎的算式需要一个字段列表，
+      而"总分由哪些行相加"取决于本机构量表的维度划分（内容／结构／语言／书写，或其它分法）。
+      **出厂配置把它指向一个占位字段 dimensionRef，因此不会误算任何数**——
+      请把 expression.fields 改为本机构量表实际的维度字段，或改为按明细行求和（sum + headerField），
+      否则本条会进 skipped。**本插件不会替使用方假定总分的构成。**
+
+  - id: ER-004
+    title: 给出得分的评分项应留下原文定位
+    severity: warn
+    basis:
+      document: 《普通高等学校招生全国统一考试评卷工作规定》
+      number: 现行版本与条号本次未核实
+      clause: 关于评分复核与质量监控的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: conditionalPresence
+          conditionField: score
+          requiredFields: ["evidenceQuote"]
+          conditionValues: []
+          fix: 补填原文定位（引用学生原句）；本条只核对是否留下定位
+    note: >-
+      "这个分是从哪句话看出来的"是量表评分**可复核的核心**：
+      没有原文定位，复核与仲裁都只能重读全文。本次未取得明文条号，故封顶 warn。
+      本条**只在得分已填写时**要求原文定位。
+      ⚠️ 本条只核对定位栏是否**填写**，**不核对所引原文是否真的出自该作文**——
+      比对原文需要看到作文，本插件看不到（这是它最重要的能力边界）。
+      若本机构对某些维度不要求定位，请按前述办法停用本条或把该维度拆出。
+
+  - id: ER-005
+    title: 评分项序号不应在量表内重复
+    severity: warn
+    basis:
+      document: 《普通高中语文课程标准》
+      number: 现行版本与条号本次未核实
+      clause: 关于写作评价的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: unique
+          field: criterionNo
+    note: >-
+      序号唯一是"每个评分项只被登记一次"的**前提条件**：序号重复会让合计出错。
+      本次未取得明文条号，故封顶 warn。比较时忽略空白字符。
+      注意：同一维度分档打分（如内容分四档）各占一行是正常的，此时应使用不同的序号。
+
+  - id: ER-006
+    title: 评分表应声明学生与量表版本
+    severity: warn
+    basis:
+      document: 《普通高中语文课程标准》
+      number: 现行版本与条号本次未核实
+      clause: 关于写作评价的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: headerPresence
+          fields: ["student","rubricVersion"]
+    note: >-
+      评分表若不写明学生与量表版本，分数就无法归属，也无法判断用的是哪一版量表 ——
+      **而量表换版时分数不可直接比较**。本次未取得明文条号，故封顶 warn。
+      配置项 student 对应学生（或考生编号），rubricVersion 对应量表版本。
+      若本机构表式还在表头记录评阅日期，把 markedAt 加进 fields 即可。
+
+disabled: []

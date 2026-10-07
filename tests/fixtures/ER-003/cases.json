@@ -1,0 +1,32 @@
+{
+  "ruleId": "ER-003",
+  "configure": {
+    "ER-003": {
+      "expression": {
+        "op": "sum",
+        "fields": [
+          "score"
+        ]
+      },
+      "tolerance": 0.01
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "ER-003-compliant.json",
+      "expect": {
+        "ruleId": "ER-003",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "ER-003-unsafe.json",
+      "expect": {
+        "ruleId": "ER-003",
+        "count": 1
+      }
+    }
+  ]
+}
