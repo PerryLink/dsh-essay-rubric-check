@@ -1,4 +1,24 @@
-# dsh-essay-rubric-check
+# dsh-essay-rubric-check — Verificación de la hoja de rúbrica de ensayo sobre puntuaciones, citas de localización y aritmética
+
+`dsh-essay-rubric-check` lee una hoja de puntuación —la cabecera del estudiante más una fila por criterio— y comprueba la completitud, la aritmética y el rastro de evidencia de esa propia hoja: que cada criterio registre un nombre o una descripción de nivel, que una puntuación no supere el máximo de ese criterio, que las puntuaciones de los criterios sumen la puntuación de la rúbrica, que todo criterio puntuado deje una cita textual, que los números de criterio no se repitan y que la hoja declare su estudiante y su versión de rúbrica.
+
+## Qué responde
+
+| Usted pregunta | Qué responde |
+|---|---|
+| Un criterio lleva una puntuación superior al máximo escrito para él. ¿Qué ocurre? | `ER-002` compara `score` con `maxScore` e informa de la fila en la que la puntuación supera el máximo. Solo compara esos dos números y no juzga si esa puntuación corresponde a este ensayo: el plugin nunca ve el texto. |
+| ¿Por qué la regla del total aparece en `skipped` en lugar de informar de algo? | `ER-003` se entrega deliberadamente sin configurar. Su expresión apunta a un campo de relleno, `dimensionRef`, así que no suma nada y la regla se informa a sí misma en `skipped`. Indique los campos de dimensión de su propia rúbrica en `expression.fields`, o cambie a sumar las filas de detalle contra el total de la cabecera, y se ejecuta. El plugin no supone cómo se compone su total. |
+| El mismo número de criterio aparece en dos filas de la rúbrica. | `ER-005` informa de un valor repetido en `criterionNo`, porque un duplicado hace que un criterio parezca registrado dos veces. Al comparar ignora los espacios en blanco. Puntuar una dimensión por bandas es una forma legítima: dé a cada banda su propio número, o desactive la regla. |
+| Un criterio tiene puntuación pero ninguna cita textual del escrito. | `ER-004` informa de esa fila: solo cuando `score` está relleno exige `evidenceQuote`. Comprueba que la celda de localización esté rellena, no que la cita provenga realmente de ese ensayo: una cita inventada pero verosímil pasa este plugin. |
+| Están vacíos tanto el nombre del criterio como su descripción de nivel. | `ER-001` exige al menos uno de `criterion` y `levelDesc` en una fila e informa de la fila en la que ambos están vacíos. Solo comprueba que uno de los dos esté relleno y no juzga si los criterios de la rúbrica son sólidos ni si sus descripciones de nivel son adecuadas. |
+| La cabecera de la hoja no dice a qué estudiante pertenece ni qué versión de rúbrica se usó. | `ER-006` exige que la cabecera declare `student` y `rubricVersion`, e informa del que falte, porque las puntuaciones no se pueden atribuir y las versiones de rúbrica no son directamente comparables. Ambos son campos de cabecera, comprobados una vez para la hoja y no fila por fila. Si su formulario también registra en la cabecera una fecha de corrección, añada `markedAt` a los `fields` de la regla. |
+
+## Normas que sigue
+
+| Documento | Número | Reglas que lo citan |
+|---|---|---|
+| 《普通高中语文课程标准》 | 现行版本与条号本次未核实 | ER-001, ER-002, ER-003, ER-005, ER-006 |
+| 《普通高等学校招生全国统一考试评卷工作规定》 | 现行版本与条号本次未核实 | ER-004 |
 
 **Boundary:** this plugin checks a **作文量表评分表** for arithmetic and evidence — that each criterion names
 itself and its level description, that a score does not exceed the criterion's maximum, that the criteria total
