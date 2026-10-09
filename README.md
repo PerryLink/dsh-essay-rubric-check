@@ -1,6 +1,14 @@
 # dsh-essay-rubric-check — Essay rubric scoring sheet check on criterion scores, quotation evidence and score arithmetic
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-essay-rubric-check` reads one scoring sheet — the student header plus one row per criterion — and checks that sheet's own completeness, arithmetic and evidence trail: whether each criterion records a name or a level description, whether a score stays within that criterion's maximum, whether the criterion scores total the rubric's score, whether every scored criterion leaves a quoted excerpt, whether criterion numbers are unique, and whether the sheet names its student and rubric version.
+
+## What it looks like
+
+![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-demo.png)
+
+Real output from this plugin over its own `ER-001` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
 
 ## What it answers
 

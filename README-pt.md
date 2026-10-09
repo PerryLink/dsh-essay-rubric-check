@@ -1,6 +1,14 @@
 # dsh-essay-rubric-check — Verificação da folha de rubrica de redação sobre pontuações, citações de localização e aritmética
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-essay-rubric-check` lê uma folha de pontuação —o cabeçalho do aluno mais uma linha por critério— e verifica a completude, a aritmética e o rasto de evidência dessa própria folha: se cada critério regista um nome ou uma descrição de nível, se uma pontuação não excede o máximo desse critério, se as pontuações dos critérios somam a pontuação da rubrica, se cada critério pontuado deixa uma citação textual, se os números de critério não se repetem e se a folha declara o seu aluno e a sua versão de rubrica.
+
+## Como é a saída
+
+![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-demo.png)
+
+Saída real deste plugin sobre o seu próprio fixture de teste `ER-001` — não é uma simulação. O pacote de regras não inventa citações, por isso cada achado nomeia a cláusula aplicada e avisa que o seu texto não foi obtido.
 
 ## O que ele responde
 

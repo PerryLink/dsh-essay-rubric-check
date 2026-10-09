@@ -1,6 +1,14 @@
 # dsh-essay-rubric-check — Verificación de la hoja de rúbrica de ensayo sobre puntuaciones, citas de localización y aritmética
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-essay-rubric-check` lee una hoja de puntuación —la cabecera del estudiante más una fila por criterio— y comprueba la completitud, la aritmética y el rastro de evidencia de esa propia hoja: que cada criterio registre un nombre o una descripción de nivel, que una puntuación no supere el máximo de ese criterio, que las puntuaciones de los criterios sumen la puntuación de la rúbrica, que todo criterio puntuado deje una cita textual, que los números de criterio no se repitan y que la hoja declare su estudiante y su versión de rúbrica.
+
+## Cómo se ve la salida
+
+![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-demo.png)
+
+Salida real de este plugin sobre su propio fixture de prueba `ER-001` — no es un montaje. El paquete de reglas no inventa citas, así que cada hallazgo nombra la cláusula aplicada y advierte que su texto no se obtuvo.
 
 ## Qué responde
 
