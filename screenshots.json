@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-essay-rubric-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-essay-rubric-check terminal output",
+    "caption": "Real dsh-essay-rubric-check checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-essay-rubric-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-essay-rubric-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]

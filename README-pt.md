@@ -6,7 +6,9 @@
 
 ## Como é a saída
 
-![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-demo.png)
+![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-hero.png)
+
+![Animated terminal demo of dsh-essay-rubric-check](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-demo.gif)
 
 Saída real deste plugin sobre o seu próprio fixture de teste `ER-001` — não é uma simulação. O pacote de regras não inventa citações, por isso cada achado nomeia a cláusula aplicada e avisa que o seu texto não foi obtido.
 
