@@ -4,6 +4,13 @@
 
 `dsh-essay-rubric-check` 读取一份作文量表评分表——学生表头加每个评分项一行——核对这张评分表自身的齐备、算术与依据：每个评分项是否填写了名称或等级描述、得分是否不超过该项分值、各评分项得分合计是否等于量表总分、给出得分的评分项是否留下原文定位、评分项序号是否唯一、表头是否声明学生与量表版本。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-essay-rubric-check
+dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-hero.png)
@@ -70,13 +77,6 @@ good, whether the score is right, whether the comment is apt, or whether a remar
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-essay-rubric-check
-dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
-```
 
 ## Configuration
 

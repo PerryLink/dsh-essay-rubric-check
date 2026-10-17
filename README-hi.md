@@ -4,6 +4,13 @@
 
 `dsh-essay-rubric-check` एक अंकन-पत्र पढ़ता है — छात्र का हेडर और प्रत्येक कसौटी की एक पंक्ति — और उसी पत्र की पूर्णता, अंकगणित तथा प्रमाण-श्रृंखला जाँचता है: क्या प्रत्येक कसौटी में नाम या स्तर-विवरण दर्ज है, क्या कोई अंक उस कसौटी के अधिकतम से अधिक नहीं है, क्या कसौटियों के अंकों का जोड़ रूब्रिक के कुल अंक के बराबर है, क्या हर अंकित कसौटी कोई उद्धृत अंश छोड़ती है, क्या कसौटी-क्रमांक दोहराए नहीं गए हैं, और क्या पत्र में छात्र तथा रूब्रिक संस्करण घोषित हैं।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-essay-rubric-check
+dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-hero.png)
@@ -70,13 +77,6 @@ good, whether the score is right, whether the comment is apt, or whether a remar
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-essay-rubric-check
-dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
-```
 
 ## Configuration
 

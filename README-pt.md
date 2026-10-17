@@ -4,6 +4,13 @@
 
 `dsh-essay-rubric-check` lê uma folha de pontuação —o cabeçalho do aluno mais uma linha por critério— e verifica a completude, a aritmética e o rasto de evidência dessa própria folha: se cada critério regista um nome ou uma descrição de nível, se uma pontuação não excede o máximo desse critério, se as pontuações dos critérios somam a pontuação da rubrica, se cada critério pontuado deixa uma citação textual, se os números de critério não se repetem e se a folha declara o seu aluno e a sua versão de rubrica.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-essay-rubric-check
+dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-hero.png)
@@ -70,13 +77,6 @@ good, whether the score is right, whether the comment is apt, or whether a remar
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-essay-rubric-check
-dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
-```
 
 ## Configuration
 

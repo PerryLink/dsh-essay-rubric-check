@@ -4,6 +4,13 @@
 
 `dsh-essay-rubric-check` reads one scoring sheet — the student header plus one row per criterion — and checks that sheet's own completeness, arithmetic and evidence trail: whether each criterion records a name or a level description, whether a score stays within that criterion's maximum, whether the criterion scores total the rubric's score, whether every scored criterion leaves a quoted excerpt, whether criterion numbers are unique, and whether the sheet names its student and rubric version.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-essay-rubric-check
+dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-essay-rubric-check: real output over its ER-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-essay-rubric-check/main/docs/assets/dsh-essay-rubric-check-hero.png)
@@ -80,13 +87,6 @@ criterion — applies a versioned rule pack, and returns a report.
 | `ER-004` | a scored criterion leaves a quoted excerpt | warn | principle |
 | `ER-005` | criterion numbers are unique | warn | principle |
 | `ER-006` | the sheet names its student and rubric version | warn | principle |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-essay-rubric-check
-dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
-```
 
 ## Configuration
 
