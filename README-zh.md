@@ -41,27 +41,15 @@ dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份 **作文量表评分表** 的算术与证据——每个评分项是否写明名称与等级描述，得分是否不超过该项分值，各评分项得分合计是否等于量表总分，**给出得分的评分项是否留有摘自作文的引文**，评分项序号是否唯一，以及表格是否写明学生与量表版本。它**不**判定作文是否写得好、分数是否正确、评语是否恰当，也不判定某条评语是否应当复核。
 
-> ### ⚠️ What this plugin can and cannot do
+> ### ⚠️ 本插件能做什么、不能做什么（以英文原文为准）
 >
-> **It never sees the essay.** So it can check that a score *points at* a quotation — never that the quotation
-> comes from that essay, and never that the score suits the writing. `ER-004`'s note says so, and the
-> troubleshooting section repeats it: a plausible invented quotation passes this plugin.
+> **它从不看作文本身。** 因此它能核对一个分数是否*指向*一条引文——但从不能核对这条引文是否出自那篇作文，也从不能核对这个分数是否与那篇作文相称。`ER-004` 的说明写明了这一点，故障排查一节也重申：编得像样的虚构引文能通过本插件。
 >
-> **`ER-003` ships deliberately unconfigured.** "Which rows sum to the total" depends on how your rubric divides
-> its dimensions — content / structure / language / handwriting, or something else — so the expression points at
-> a placeholder field and **computes nothing**. Change `expression.fields` to your rubric's dimension fields, or
-> switch to a line-sum + header total, and the rule runs; otherwise it reports itself in `skipped`. **The plugin
-> will not assume your total's composition.**
+> **`ER-003` 出厂即有意留白。** “哪些行加总等于总分”取决于你的量表如何划分维度——内容 / 结构 / 语言 / 书写，或者别的划分方式——因此算式只指向一个占位字段，**不计算任何数**。把 `expression.fields` 改为你量表的维度字段，或改为按明细行求和并与表头总分核对，这条规则就会执行；否则它报告自己进了 `skipped`。**本插件不会假定你的总分如何构成。**
 >
-> Requiring a quotation for every scored criterion reflects one editorial rule — that marking be reviewable —
-> rather than a quotation from a standard. That is why `ER-004` is `warn` and why its note explains how to relax
-> it: if some dimensions in your rubric need no quotation, disable the rule or split those dimensions out.
+> 要求每个已评分的评分项都附一条引文，反映的是一条编辑规则——评分应可复核——而不是标准中的某条引文。正因如此，`ER-004` 是 `warn`，其说明也解释了如何放宽它：如果你量表中的某些维度不需要引文，就停用该规则，或把这些维度拆分出去。
 >
-> **Every `excerpt` in the rule pack says, in so many words, that the clause text was not obtained.** The regime
-> lives in the Chinese language curriculum standards, national marking rules and each school's own rubric. The
-> verification pass retrieved neither the clause text nor any rubric, so the pack states the gap in the `excerpt`
-> field itself and keeps every rule at `warn` or `info`. **When the texts are in hand, replace each `excerpt`
-> with the real clause and raise `kind` to `direct`.**
+> **规则库中的每一条 `excerpt` 都明确写着：本次未取得条款原文。** 该制度见于语文课程标准、国家评卷规则和各校自己的评分量表。核验过程既未取得条款原文，也未取得任何评分量表，因此规则库把这一缺口写在 `excerpt` 字段本身，并把每条规则保持在 `warn` 或 `info`。**拿到原文后，请把每条 `excerpt` 替换为真实条款，并把 `kind` 提升为 `direct`。**
 
 ## Compatibility
 
