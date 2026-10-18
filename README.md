@@ -1,5 +1,7 @@
 # dsh-essay-rubric-check — Essay rubric scoring sheet check on criterion scores, quotation evidence and score arithmetic
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-essay-rubric-check` reads one scoring sheet — the student header plus one row per criterion — and checks that sheet's own completeness, arithmetic and evidence trail: whether each criterion records a name or a level description, whether a score stays within that criterion's maximum, whether the criterion scores total the rubric's score, whether every scored criterion leaves a quoted excerpt, whether criterion numbers are unique, and whether the sheet names its student and rubric version.

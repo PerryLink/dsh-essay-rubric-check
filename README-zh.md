@@ -1,5 +1,7 @@
 # dsh-essay-rubric-check — 作文量表评分核对（按评分项、原文定位与分值算术核对评分自洽）
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-essay-rubric-check` 读取一份作文量表评分表——学生表头加每个评分项一行——核对这张评分表自身的齐备、算术与依据：每个评分项是否填写了名称或等级描述、得分是否不超过该项分值、各评分项得分合计是否等于量表总分、给出得分的评分项是否留下原文定位、评分项序号是否唯一、表头是否声明学生与量表版本。
