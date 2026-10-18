@@ -39,11 +39,7 @@ dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
 | 《普通高中语文课程标准》 | 现行版本与条号本次未核实 | ER-001, ER-002, ER-003, ER-005, ER-006 |
 | 《普通高等学校招生全国统一考试评卷工作规定》 | 现行版本与条号本次未核实 | ER-004 |
 
-**Boundary:** this plugin checks a **作文量表评分表** for arithmetic and evidence — that each criterion names
-itself and its level description, that a score does not exceed the criterion's maximum, that the criteria total
-the rubric's score, that **a scored criterion leaves a quoted excerpt from the writing**, that criterion numbers
-are unique, and that the sheet names its student and rubric version. It does **not** decide whether the writing is
-good, whether the score is right, whether the comment is apt, or whether a remark should be reviewed.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份 **作文量表评分表** 的算术与证据——每个评分项是否写明名称与等级描述，得分是否不超过该项分值，各评分项得分合计是否等于量表总分，**给出得分的评分项是否留有摘自作文的引文**，评分项序号是否唯一，以及表格是否写明学生与量表版本。它**不**判定作文是否写得好、分数是否正确、评语是否恰当，也不判定某条评语是否应当复核。
 
 > ### ⚠️ What this plugin can and cannot do
 >
