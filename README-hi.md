@@ -30,6 +30,35 @@ dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
 नीचे दी गई तालिका उदाहरण-समुच्चय है: पहली पंक्ति विस्तृत केस है, बाकी संक्षिप्त केस हैं।
 
 
+#### विस्तृत आउटपुट
+
+**उपकरण** `essay_rubric_check`
+
+**इनपुट**
+
+~~~json
+{"rows":[{"序号":"1","评分项":"","维度":"内容","等级描述":"","得分":"18", ...}]}
+~~~
+ 
+**आउटपुट**
+
+~~~json
+{
+  "id": "dsh-essay-rubric-check.ER-001.de09b5a6",
+  "ruleId": "ER-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "criterion"
+  },
+  "found": "第 1 行 criterion、levelDesc 都为空",
+  "expected": "criterion、levelDesc 至少应填写一项",
+  "fix": "补填评分项与等级描述；本条只核对是否填写，不判断量表是否合理"
+}
+~~~
+
+*स्रोत `dsh-essay-rubric-check/tests/fixtures/ER-001/ER-001-unsafe.json; dsh-essay-rubric-check/tests/fixtures/ER-001/cases.json; dsh-essay-rubric-check/rules/essay-rubric-check.yaml; dsh-essay-rubric-check/tests/index.test.ts`*
+
 | आपका सवाल | इसका जवाब |
 |---|---|
 | किसी कसौटी में उसके लिए लिखे अधिकतम से अधिक अंक दर्ज है। क्या होता है? | `ER-002` `score` की तुलना `maxScore` से करता है और जिस पंक्ति में अंक अधिकतम से अधिक है उसे दर्ज करता है। यह केवल उन दोनों संख्याओं की तुलना करता है और यह नहीं आँकता कि वह अंक इस निबंध के अनुरूप है या नहीं: यह प्लगइन निबंध को कभी नहीं देखता। |

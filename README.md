@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `essay_rubric_check`
+
+**Input**
+
+~~~json
+{"rows":[{"序号":"1","评分项":"","维度":"内容","等级描述":"","得分":"18", ...}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-essay-rubric-check.ER-001.de09b5a6",
+  "ruleId": "ER-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "criterion"
+  },
+  "found": "第 1 行 criterion、levelDesc 都为空",
+  "expected": "criterion、levelDesc 至少应填写一项",
+  "fix": "补填评分项与等级描述；本条只核对是否填写，不判断量表是否合理"
+}
+~~~
+
+*Observed from `dsh-essay-rubric-check/tests/fixtures/ER-001/ER-001-unsafe.json; dsh-essay-rubric-check/tests/fixtures/ER-001/cases.json; dsh-essay-rubric-check/rules/essay-rubric-check.yaml; dsh-essay-rubric-check/tests/index.test.ts`*
+
 | You ask | What it answers |
 |---|---|
 | One criterion carries a score above the maximum written for it. What happens? | `ER-002` compares `score` with `maxScore` and reports the row where the score exceeds the maximum. It only compares the two numbers, and it does not judge whether that score suits this essay: the plugin never sees the writing. |

@@ -30,6 +30,35 @@ dsh --profile <name> --dump-config | grep 'dsh-essay-rubric-check'
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
 
+#### 详细输出
+
+**工具** `essay_rubric_check`
+
+**输入**
+
+~~~json
+{"rows":[{"序号":"1","评分项":"","维度":"内容","等级描述":"","得分":"18", ...}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-essay-rubric-check.ER-001.de09b5a6",
+  "ruleId": "ER-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "criterion"
+  },
+  "found": "第 1 行 criterion、levelDesc 都为空",
+  "expected": "criterion、levelDesc 至少应填写一项",
+  "fix": "补填评分项与等级描述；本条只核对是否填写，不判断量表是否合理"
+}
+~~~
+
+*来源 `dsh-essay-rubric-check/tests/fixtures/ER-001/ER-001-unsafe.json; dsh-essay-rubric-check/tests/fixtures/ER-001/cases.json; dsh-essay-rubric-check/rules/essay-rubric-check.yaml; dsh-essay-rubric-check/tests/index.test.ts`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 某一项的得分超过了该项写明的分值，会怎样？ | `ER-002` 比较 `score` 与 `maxScore`，得分超过该项分值的行会被报出。它只比较这两个数，不判断这个分数与这篇作文是否相称：本插件看不到作文本身。 |

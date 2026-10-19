@@ -30,6 +30,35 @@ Salida real de este plugin sobre su propio fixture de prueba `ER-001` — no es 
 La tabla siguiente es el conjunto de ejemplos: la primera fila es el caso detallado y las demás son casos breves.
 
 
+#### Salida detallada
+
+**Herramienta** `essay_rubric_check`
+
+**Entrada**
+
+~~~json
+{"rows":[{"序号":"1","评分项":"","维度":"内容","等级描述":"","得分":"18", ...}]}
+~~~
+ 
+**Salida**
+
+~~~json
+{
+  "id": "dsh-essay-rubric-check.ER-001.de09b5a6",
+  "ruleId": "ER-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "criterion"
+  },
+  "found": "第 1 行 criterion、levelDesc 都为空",
+  "expected": "criterion、levelDesc 至少应填写一项",
+  "fix": "补填评分项与等级描述；本条只核对是否填写，不判断量表是否合理"
+}
+~~~
+
+*Observado en `dsh-essay-rubric-check/tests/fixtures/ER-001/ER-001-unsafe.json; dsh-essay-rubric-check/tests/fixtures/ER-001/cases.json; dsh-essay-rubric-check/rules/essay-rubric-check.yaml; dsh-essay-rubric-check/tests/index.test.ts`*
+
 | Usted pregunta | Qué responde |
 |---|---|
 | Un criterio lleva una puntuación superior al máximo escrito para él. ¿Qué ocurre? | `ER-002` compara `score` con `maxScore` e informa de la fila en la que la puntuación supera el máximo. Solo compara esos dos números y no juzga si esa puntuación corresponde a este ensayo: el plugin nunca ve el texto. |
