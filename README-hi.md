@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-essay-rubric-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-essay-rubric-check?ref=badge)
 
 `dsh-essay-rubric-check` एक अंकन-पत्र पढ़ता है — छात्र का हेडर और प्रत्येक कसौटी की एक पंक्ति — और उसी पत्र की पूर्णता, अंकगणित तथा प्रमाण-श्रृंखला जाँचता है: क्या प्रत्येक कसौटी में नाम या स्तर-विवरण दर्ज है, क्या कोई अंक उस कसौटी के अधिकतम से अधिक नहीं है, क्या कसौटियों के अंकों का जोड़ रूब्रिक के कुल अंक के बराबर है, क्या हर अंकित कसौटी कोई उद्धृत अंश छोड़ती है, क्या कसौटी-क्रमांक दोहराए नहीं गए हैं, और क्या पत्र में छात्र तथा रूब्रिक संस्करण घोषित हैं।
 
