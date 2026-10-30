@@ -88,27 +88,11 @@ the rubric's score, that **a scored criterion leaves a quoted excerpt from the w
 are unique, and that the sheet names its student and rubric version. It does **not** decide whether the writing is
 good, whether the score is right, whether the comment is apt, or whether a remark should be reviewed.
 
-> ### ⚠️ What this plugin can and cannot do
+> ### ⚠️ Read this before trusting a citation in the report
 >
-> **It never sees the essay.** So it can check that a score *points at* a quotation — never that the quotation
-> comes from that essay, and never that the score suits the writing. `ER-004`'s note says so, and the
-> troubleshooting section repeats it: a plausible invented quotation passes this plugin.
+> **`excerpt` status is per rule, not uniform.** Some rules quote the clause verbatim (`kind: direct`), some are derived from the principle of the cited articles (`kind: derived-from-principle`, capped at `warn`), and some use thresholds your institution configures (`kind: institutional-configuration`, capped at `info`). The pack never paraphrases a quotation: when the text was not obtained, the `excerpt` field says so and the reasoning lives in `note`; a test asserts that no rule claims a quotation it does not have. **For any rule still marked as not obtained, replace the `excerpt` with the real clause and raise `kind` to `direct` once the text is in hand.**
 >
-> **`ER-003` ships deliberately unconfigured.** "Which rows sum to the total" depends on how your rubric divides
-> its dimensions — content / structure / language / handwriting, or something else — so the expression points at
-> a placeholder field and **computes nothing**. Change `expression.fields` to your rubric's dimension fields, or
-> switch to a line-sum + header total, and the rule runs; otherwise it reports itself in `skipped`. **The plugin
-> will not assume your total's composition.**
->
-> Requiring a quotation for every scored criterion reflects one editorial rule — that marking be reviewable —
-> rather than a quotation from a standard. That is why `ER-004` is `warn` and why its note explains how to relax
-> it: if some dimensions in your rubric need no quotation, disable the rule or split those dimensions out.
->
-> **Every `excerpt` in the rule pack says, in so many words, that the clause text was not obtained.** The regime
-> lives in the Chinese language curriculum standards, national marking rules and each school's own rubric. The
-> verification pass retrieved neither the clause text nor any rubric, so the pack states the gap in the `excerpt`
-> field itself and keeps every rule at `warn` or `info`. **When the texts are in hand, replace each `excerpt`
-> with the real clause and raise `kind` to `direct`.**
+> The conclusion is the reviewer's: this plugin lists differences it can point to in the material and does not decide facts or compliance.
 
 ## Compatibility
 
