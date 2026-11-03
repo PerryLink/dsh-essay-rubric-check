@@ -1,6 +1,6 @@
 # dsh-essay-rubric-check — 作文量表评分核对（按评分项、原文定位与分值算术核对评分自洽）
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
