@@ -58,7 +58,9 @@
       "writes": [],
       "network": false,
       "external": []
-    }
+    },
+    "capabilities": [],
+    "labels": []
   },
   "keywords": [
     "deepseek-harness",
