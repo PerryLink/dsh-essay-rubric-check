@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-dark.svg">
-  <img src="docs/assets/dsh-essay-rubric-check-flow-light.svg" width="100%" alt="Fluxo do dsh-essay-rubric-check: file / material → parseMaterial → runCheck (carrega rules/essay-rubric-check.yaml e executa ER-001…ER-006) → issues[] (found / expected / fix) → buildView (markdown + reportJson)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-essay-rubric-check-hero-en-light.webp" width="100%" alt="Imagem de capa do dsh-essay-rubric-check: à esquerda o nome do plugin e as frases de valor; à direita uma folha de rubrica desenhada como três barras de pontuação — Língua obtém 22 contra um máximo de 20 (o excesso marcado em âmbar) e Estrutura tem pontuação mas a célula de citação está vazia; abaixo, dois achados indicam ER-002 e ER-004 com linha e coluna, e a faixa de relatório separa issues[] e skipped[] e deixa a conclusão para o revisor.">
 </picture>
 
 # dsh-essay-rubric-check
@@ -41,6 +41,11 @@ dsh plugin --profile <name> add dsh-essay-rubric-check
 Registra uma ferramenta visível ao modelo, `essay_rubric_check`: o material é JSON ou YAML (`file` e `material` são mutuamente exclusivos) e a saída é um relatório `markdown` mais `reportJson` e as contagens de `summary`. Toda verificação que não pôde ser executada aparece em `skipped` com o motivo; nunca é tratada em silêncio como "nada está errado".
 
 Feita para pesquisadores de ensino, professores de língua chinesa e equipes de correção: exporte a folha para JSON/YAML e verifique em lote; o arquivo original é somente leitura e nunca é modificado.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-essay-rubric-check: uma folha de rubrica com os campos de cabeçalho student, rubricVersion, totalScore e fullScore, três linhas de critérios e o pacote de regras 2026.1; os alfinetes 1–5 marcam as células student, criterionNo, score, criterion e evidenceQuote, e o 6 marca a expressão de ER-003 no pacote de regras; cada alfinete abre à direita um cartão com a regra, a gravidade, o âmbito e um localizador de linha + coluna; a expressão de ER-003 ainda aponta para o marcador dimensionRef, por isso nada é somado e a regra aparece em skipped; a faixa de relatório separa issues[] e skipped[] e deixa a conclusão para o revisor.">
+</picture>
 
 ## Instalação em três passos
 
@@ -315,7 +320,7 @@ pnpm pack
 
 O plugin é **orientado a dados**: `src/model.ts` declara a forma da tabela, o kit partilhado fornece o leitor e o motor de verificação, e o pacote de regras declara cada verificação. `node ../scripts/sync-shared.mjs dsh-essay-rubric-check` copia o kit partilhado de `../_shared` para `src/shared/`; execute-o novamente após cada alteração partilhada.
 
-`pnpm run check:readmes` mantém os cinco READMEs com o mesmo número de secções, o mesmo comando de instalação e as mesmas chaves de configuração. Os diagramas são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow, saída SVG clara e escura) e podem ser regenerados a qualquer momento.
+`pnpm run check:readmes` mantém os cinco READMEs com o mesmo número de secções, o mesmo comando de instalação e as mesmas chaves de configuração. As figuras são geradas por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (capa em WebP clara e escura, diagrama de estrutura em SVG claro e escuro) e podem ser regeneradas a qualquer momento.
 
 ## Família e agradecimentos
 

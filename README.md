@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-dark.svg">
-  <img src="docs/assets/dsh-essay-rubric-check-flow-light.svg" width="100%" alt="dsh-essay-rubric-check 工作流：file / material → parseMaterial → runCheck（加载 rules/essay-rubric-check.yaml，执行 ER-001…ER-006）→ issues[]（found / expected / fix）→ buildView（markdown + reportJson）">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-essay-rubric-check-hero-zh-light.webp" width="100%" alt="dsh-essay-rubric-check 配图：左列是插件名、两行价值句与「只列差异」的边界；右侧把一张作文评分表画成三条得分条——语言项 22 分超过该项分值 20（超出部分标为琥珀色），结构项给了 18 分但原文定位栏是空的；下方两条差异写明 ER-002 与 ER-004 的行号与字段，报告条把 issues[] 与 skipped[] 分开，结论留给阅卷人。">
 </picture>
 
 # dsh-essay-rubric-check
@@ -41,6 +41,11 @@ dsh plugin --profile <name> add dsh-essay-rubric-check
 它注册一个模型可调用的工具 `essay_rubric_check`：材料是 JSON 或 YAML（`file` 与 `material` 二选一），输出 `markdown` 报告、`reportJson` 与 `summary` 计数。无法执行的检查会逐条写进 `skipped`，不会被静默当作“没问题”。
 
 适合教研员、语文教师与阅卷组：批量核对时把评分表导出为 JSON/YAML 交给它，原始文件只读，不改原件。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="dsh-essay-rubric-check 结构图：左栏是作文评分表——student、rubricVersion、totalScore、fullScore 表头字段、三行评分项，以及标着 2026.1 的规则包；编号 ①–⑤ 钉在学生、序号、得分、评分项与原文定位这些单元格上，⑥ 钉在规则包的 ER-003 算式上；每个编号在右栏开出一张差异卡，写明规则、级别、作用域与「行号 + 字段」定位；ER-003 的算式仍指向占位字段 dimensionRef，因此不计算任何数、整条进 skipped；底部报告带把 issues[] 与 skipped[] 分开放，结论留给阅卷人。">
+</picture>
 
 ## 三步上手
 
@@ -315,7 +320,7 @@ pnpm pack
 
 插件是**数据驱动**的：`src/model.ts` 声明表格形状，共享 kit 提供读取器与检查引擎，规则包声明每一条检查。`node ../scripts/sync-shared.mjs dsh-essay-rubric-check` 把 `../_shared` 的共享件同步进 `src/shared/`；每次改动共享件后都要重跑。
 
-五语文档由 `pnpm run check:readmes` 守住同一节数、同一条安装命令与同一组配置键。配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow，输出深浅两版 SVG），可重复执行。
+五语文档由 `pnpm run check:readmes` 守住同一节数、同一条安装命令与同一组配置键。配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（hero 深浅两版 webp + 结构图深浅两版 SVG），可重复执行。
 
 ## 家族与致谢
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-dark.svg">
-  <img src="docs/assets/dsh-essay-rubric-check-flow-light.svg" width="100%" alt="dsh-essay-rubric-check प्रवाह: file / material → parseMaterial → runCheck (rules/essay-rubric-check.yaml लोड करता है और ER-001…ER-006 चलाता है) → issues[] (found / expected / fix) → buildView (markdown + reportJson)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-essay-rubric-check-hero-en-light.webp" width="100%" alt="dsh-essay-rubric-check हीरो: बाईं ओर प्लगइन का नाम और मूल्य-पंक्तियाँ; दाईं ओर रूब्रिक शीट तीन स्कोर-बार के रूप में — भाषा को अधिकतम 20 के मुकाबले 22 अंक (अतिरिक्त भाग एम्बर रंग में) और संरचना में अंक हैं पर उद्धरण-खाना खाली है; नीचे दो निष्कर्ष ER-002 और ER-004 को पंक्ति व स्तंभ के साथ बताते हैं, और रिपोर्ट पट्टी issues[] तथा skipped[] को अलग रखती है और निर्णय समीक्षक के पास छोड़ती है।">
 </picture>
 
 # dsh-essay-rubric-check
@@ -41,6 +41,11 @@ dsh plugin --profile <name> add dsh-essay-rubric-check
 यह मॉडल के लिए दृश्य एक टूल `essay_rubric_check` पंजीकृत करता है: सामग्री JSON या YAML है (`file` और `material` में से एक), और आउटपुट `markdown` रिपोर्ट तथा `reportJson` और `summary` गणनाएँ हैं। जो जाँच नहीं चल सकीं वे कारण सहित `skipped` में दर्ज होती हैं; उन्हें चुपचाप "कुछ गड़बड़ नहीं" नहीं माना जाता।
 
 शिक्षण-शोधकर्ताओं, चीनी भाषा के शिक्षकों और जाँच दलों के लिए: बैच जाँच के लिए शीट को JSON/YAML में निर्यात करें; मूल फ़ाइल केवल-पढ़ने योग्य है और कभी बदली नहीं जाती।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-essay-rubric-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="dsh-essay-rubric-check संरचना: एक रूब्रिक शीट जिसमें student, rubricVersion, totalScore और fullScore हेडर-खाने, तीन कसौटी-पंक्तियाँ और 2026.1 नियम-पैक हैं; पिन 1–5 student, criterionNo, score, criterion और evidenceQuote खानों पर लगे हैं और पिन 6 नियम-पैक के ER-003 व्यंजक पर; हर पिन दाईं ओर एक कार्ड खोलता है जिसमें नियम, गंभीरता, दायरा और पंक्ति + स्तंभ वाला लोकेटर है; ER-003 का व्यंजक अब भी प्लेसहोल्डर dimensionRef की ओर इशारा करता है, इसलिए कुछ भी जोड़ा नहीं जाता और वह skipped में दर्ज होता है; रिपोर्ट पट्टी issues[] और skipped[] को अलग रखती है और निर्णय समीक्षक के पास छोड़ती है।">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -315,7 +320,7 @@ pnpm pack
 
 प्लगइन **डेटा-चालित** है: `src/model.ts` तालिका का आकार घोषित करता है, साझा किट पाठक और जाँच-इंजन देता है, और नियम-पैक हर जाँच घोषित करता है। `node ../scripts/sync-shared.mjs dsh-essay-rubric-check` `../_shared` का साझा किट `src/shared/` में कॉपी करता है; हर साझा बदलाव के बाद इसे दोबारा चलाएँ।
 
-`pnpm run check:readmes` पाँचों README को एक ही खंड-संख्या, एक ही इंस्टॉल कमांड और एक ही कॉन्फ़िगरेशन-कुंजियों पर रखता है। आरेख [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनते हैं (Python + Pillow, हल्का और गहरा SVG आउटपुट) और कभी भी दोबारा बनाए जा सकते हैं।
+`pnpm run check:readmes` पाँचों README को एक ही खंड-संख्या, एक ही इंस्टॉल कमांड और एक ही कॉन्फ़िगरेशन-कुंजियों पर रखता है। चित्र [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनते हैं (हीरो हल्का/गहरा WebP, संरचना-आरेख हल्का/गहरा SVG) और कभी भी दोबारा बनाए जा सकते हैं।
 
 ## परिवार और आभार
 
