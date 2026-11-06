@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" role="img" aria-label="dsh-essay-rubric-check workflow: file or material to parseMaterial to runCheck to issues to buildView">
+<title>dsh-essay-rubric-check workflow</title>
+<rect width="1280" height="440" rx="18" fill="#ffffff"/>
+<text x="56" y="58" fill="#1f2328" font-family="ui-sans-serif,system-ui,sans-serif" font-size="30" font-weight="700">dsh-essay-rubric-check</text>
+<text x="56" y="92" fill="#57606a" font-family="ui-monospace,monospace" font-size="15">essay_rubric_check · rules/essay-rubric-check.yaml · ER-001…ER-006</text>
+<line x1="56" y1="116" x2="1224" y2="116" stroke="#d0d7de"/>
+<rect x="56" y="150" width="208" height="110" rx="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2"/>
+<text x="160" y="196" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="17" font-weight="700">file / material</text>
+<text x="160" y="226" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">JSON / YAML</text>
+<path d="M268 205h12" stroke="#57606a" stroke-width="3" stroke-linecap="round"/>
+<path d="M276 198l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="294" y="150" width="208" height="110" rx="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2"/>
+<text x="398" y="196" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="17" font-weight="700">parseMaterial</text>
+<text x="398" y="226" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">header + rows</text>
+<path d="M506 205h12" stroke="#57606a" stroke-width="3" stroke-linecap="round"/>
+<path d="M514 198l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="532" y="150" width="208" height="110" rx="14" fill="#f6f8fa" stroke="#4B67B4" stroke-width="2"/>
+<text x="636" y="196" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="17" font-weight="700">runCheck</text>
+<text x="636" y="226" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">ER-001…ER-006</text>
+<path d="M744 205h12" stroke="#57606a" stroke-width="3" stroke-linecap="round"/>
+<path d="M752 198l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="770" y="150" width="208" height="110" rx="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2"/>
+<text x="874" y="196" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="17" font-weight="700">issues[]</text>
+<text x="874" y="226" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">found · expected · fix</text>
+<path d="M982 205h12" stroke="#57606a" stroke-width="3" stroke-linecap="round"/>
+<path d="M990 198l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1008" y="150" width="208" height="110" rx="14" fill="#f6f8fa" stroke="#16a34a" stroke-width="2"/>
+<text x="1112" y="196" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="17" font-weight="700">buildView</text>
+<text x="1112" y="226" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">markdown + reportJson</text>
+<path d="M636 260v38" stroke="#4B67B4" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="356" y="298" width="560" height="76" rx="12" fill="#f6f8fa" stroke="#4B67B4" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="636" y="330" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" font-weight="700">rules/essay-rubric-check.yaml</text>
+<text x="636" y="354" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5">loadRulesetFile · excerpt ≥ 8 · kind → severity</text>
+<text x="56" y="416" fill="#57606a" font-family="ui-monospace,monospace" font-size="13">skipped[] · summary { error, warn, info } · issueCount · reportJson</text>
+</svg>
