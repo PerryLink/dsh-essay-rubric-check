@@ -14,6 +14,8 @@ export interface Config {
   onlyRules: string[]
   /** Extra note appended to every `skipped` reason. */
   skipNotes: string
+  /** Dimension columns that make up the total score, for ER-003. */
+  dimensionFields: string[]
   /** Tool timeout budget in milliseconds. */
   timeoutMs: number
 }
@@ -31,6 +33,9 @@ export const Config: Schema<Config> = Schema.object({
   skipNotes: Schema.string()
     .default('')
     .description('附加到每条 skipped 说明后的备注，例如标注本机构实施细则。'),
+  dimensionFields: Schema.array(Schema.string())
+    .default([])
+    .description('构成总分的维度列名，例如 ["内容", "结构", "语言", "书写"]；留空时 ER-003 不执行。'),
   timeoutMs: Schema.number()
     .default(120000)
     .description('工具协作式超时预算（毫秒）。'),

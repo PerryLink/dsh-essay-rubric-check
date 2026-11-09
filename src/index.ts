@@ -127,12 +127,16 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         exec.signal.throwIfAborted()
         const input = parseMaterial(material.text, material.target)
         const only = (args.only ?? []).length > 0 ? (args.only as string[]) : config.onlyRules
+        const overrides = config.dimensionFields.length > 0
+          ? { 'ER-003': { expression: { op: 'sum', fields: config.dimensionFields } } }
+          : undefined
         const report = runCheck(input, ruleset, {
           plugin: name,
           checkedAt: new Date().toISOString(),
           disabledRules: config.disabledRules,
           onlyRules: only,
           skipNotes: config.skipNotes === '' ? undefined : config.skipNotes,
+          ...(overrides === undefined ? {} : { overrides }),
         })
         return buildView(report)
       },
