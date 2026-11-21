@@ -115,6 +115,10 @@ The tool is named `essay_rubric_check`. It reads a rubric sheet shaped as "stude
 
 ### Examples
 
+![dsh-essay-rubric-check: real terminal run](docs/assets/dsh-essay-rubric-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 **Tool** `essay_rubric_check`
 
 **Input**

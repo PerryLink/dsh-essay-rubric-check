@@ -36,6 +36,10 @@ dsh plugin --profile <name> add dsh-essay-rubric-check
 
 ## 它是什么
 
+![dsh-essay-rubric-check 真实终端运行](docs/assets/dsh-essay-rubric-check-demo.gif)
+
+*本仓库一次真实运行的动图回放。*
+
 `dsh-essay-rubric-check` 读取一份**作文评分表**——学生表头加每个评分项一行——核对这张表自身的齐备、算术与依据：每个评分项是否填写了名称或等级描述、得分是否不超过该项分值、各评分项得分合计是否等于量表总分、给出得分的评分项是否留下原文定位、评分项序号是否唯一、表头是否声明学生与量表版本。它只列出能在材料里逐条指认的差异，不判断作文写得好不好、分数对不对、评语是否恰当。
 
 它注册一个模型可调用的工具 `essay_rubric_check`：材料是 JSON 或 YAML（`file` 与 `material` 二选一），输出 `markdown` 报告、`reportJson` 与 `summary` 计数。无法执行的检查会逐条写进 `skipped`，不会被静默当作“没问题”。

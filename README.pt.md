@@ -47,6 +47,11 @@ Feita para pesquisadores de ensino, professores de língua chinesa e equipes de 
   <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-essay-rubric-check: uma folha de rubrica com os campos de cabeçalho student, rubricVersion, totalScore e fullScore, três linhas de critérios e o pacote de regras 2026.1; os alfinetes 1–5 marcam as células student, criterionNo, score, criterion e evidenceQuote, e o 6 marca a expressão de ER-003 no pacote de regras; cada alfinete abre à direita um cartão com a regra, a gravidade, o âmbito e um localizador de linha + coluna; a expressão de ER-003 ainda aponta para o marcador dimensionRef, por isso nada é somado e a regra aparece em skipped; a faixa de relatório separa issues[] e skipped[] e deixa a conclusão para o revisor.">
 </picture>
 
+![dsh-essay-rubric-check: execução real de terminal](docs/assets/dsh-essay-rubric-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instale** (escolha um canal):

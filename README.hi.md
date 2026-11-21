@@ -47,6 +47,11 @@ dsh plugin --profile <name> add dsh-essay-rubric-check
   <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="dsh-essay-rubric-check संरचना: एक रूब्रिक शीट जिसमें student, rubricVersion, totalScore और fullScore हेडर-खाने, तीन कसौटी-पंक्तियाँ और 2026.1 नियम-पैक हैं; पिन 1–5 student, criterionNo, score, criterion और evidenceQuote खानों पर लगे हैं और पिन 6 नियम-पैक के ER-003 व्यंजक पर; हर पिन दाईं ओर एक कार्ड खोलता है जिसमें नियम, गंभीरता, दायरा और पंक्ति + स्तंभ वाला लोकेटर है; ER-003 का व्यंजक अब भी प्लेसहोल्डर dimensionRef की ओर इशारा करता है, इसलिए कुछ भी जोड़ा नहीं जाता और वह skipped में दर्ज होता है; रिपोर्ट पट्टी issues[] और skipped[] को अलग रखती है और निर्णय समीक्षक के पास छोड़ती है।">
 </picture>
 
+![dsh-essay-rubric-check का असली टर्मिनल रन](docs/assets/dsh-essay-rubric-check-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल करें** (एक चैनल चुनें):

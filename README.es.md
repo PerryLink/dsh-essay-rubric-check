@@ -47,6 +47,11 @@ Pensada para investigadores didácticos, profesores de lengua china y equipos de
   <img src="docs/assets/dsh-essay-rubric-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-essay-rubric-check: una hoja de rúbrica con sus campos de cabecera student, rubricVersion, totalScore y fullScore, tres filas de criterios y el paquete de reglas 2026.1; las chinchetas 1–5 marcan las celdas de student, criterionNo, score, criterion y evidenceQuote, y la 6 marca la expresión de ER-003 en el paquete de reglas; cada chincheta abre a la derecha una tarjeta con la regla, la gravedad, el ámbito y un localizador de fila + columna; la expresión de ER-003 sigue apuntando al marcador dimensionRef, así que no se suma nada y la regla aparece en skipped; la franja de informe separa issues[] y skipped[] y deja la conclusión al revisor.">
 </picture>
 
+![dsh-essay-rubric-check: ejecución real de terminal](docs/assets/dsh-essay-rubric-check-demo.gif)
+
+*Repetición animada de una ejecución real registrada en este repositorio.*
+
+
 ## Instalación en tres pasos
 
 1. **Instala** (elige un canal):
