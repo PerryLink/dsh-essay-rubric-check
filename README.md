@@ -11,6 +11,8 @@
 
 面向教研员、语文教师与阅卷组的评分表核对工具：读取学生表头加评分项明细，核对填写齐备、分值算术、原文定位、序号唯一与表头归属，只列差异，不替人下结论。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -270,7 +272,7 @@ profile patch 覆盖示例：
 - **`ER-002` 在得分正好等于满分时报错。** 相等是允许的；报错意味着得分更大。
 - **`ER-005` 在同一维度的两行上报错。** 同一维度内分档打分是正常情形——给每一档不同的序号。
 - **插件装上了但工具不出现。** 确认 `main` 指向 `lib/index.mjs`，且 `pnpm run build` 已生成该文件；`main` 写错会让加载器静默跳过条目。
-- **`dsh plugin add` 报版本不兼容。** peer 范围覆盖 `0.1.x` 与 `0.2.x`；若运行时在其之外，可显式豁免：`dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.10 --dsh-version <runtime> --accept-risk`。
+- **`dsh plugin add` 报版本不兼容。** peer 范围覆盖 `0.1.x` 与 `0.2.x`；若运行时在其之外，可显式豁免：`dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.12 --dsh-version <runtime> --accept-risk`。
 - **`check` 报 `manifest-peers` 失败。** 静态检查器比对的是一份早于 0.2 世代的硬编码 peer 范围；安装期的 peer 校验以运行时为准。这是 `dsh-plugin-dev` 的已知上游问题。
 
 ## 安全边界与已知限制

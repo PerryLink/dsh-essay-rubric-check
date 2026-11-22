@@ -11,6 +11,8 @@
 
 Uma ferramenta de verificação de folhas de pontuação para pesquisadores de ensino, professores de língua chinesa e equipes de correção: lê o cabeçalho do aluno mais uma linha por critério, verifica completude, aritmética, rastro de evidência, unicidade dos números de critério e atribuição da folha, e lista as diferenças sem decidir nada pelo revisor.
 
+Última verificação: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalar](#instalação-em-três-passos) · [Configuração](#configuração) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -50,7 +52,6 @@ Feita para pesquisadores de ensino, professores de língua chinesa e equipes de 
 ![dsh-essay-rubric-check: execução real de terminal](docs/assets/dsh-essay-rubric-check-demo.gif)
 
 *Repetição animada de uma execução real registrada neste repositório.*
-
 
 ## Instalação em três passos
 
@@ -271,7 +272,7 @@ Não. Registra exatamente uma ferramenta, `essay_rubric_check`, e não fornece s
 - **`ER-002` dispara numa pontuação igual ao máximo.** A igualdade é permitida; um achado significa que a pontuação é maior.
 - **`ER-005` dispara em duas linhas de uma mesma dimensão.** Linhas por escalões dentro de uma dimensão são legítimas: numere-as de forma diferente.
 - **O plugin instala mas a ferramenta não aparece.** Confirme que `main` resolve para `lib/index.mjs` e que `pnpm run build` o gerou; um `main` errado faz o carregador ignorar a entrada em silêncio.
-- **`dsh plugin add` recusa o pacote como incompatível.** O intervalo de peers cobre `0.1.x` e `0.2.x`; fora dele, conceda isenção explícita: `dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.10 --dsh-version <runtime> --accept-risk`.
+- **`dsh plugin add` recusa o pacote como incompatível.** O intervalo de peers cobre `0.1.x` e `0.2.x`; fora dele, conceda isenção explícita: `dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.12 --dsh-version <runtime> --accept-risk`.
 - **`check` informa `manifest-peers` como falha.** O verificador estático compara com um intervalo de peers fixo anterior à linha 0.2. O runtime aplica a compatibilidade na instalação, portanto o intervalo declarado é o correto; é um problema conhecido do `dsh-plugin-dev`.
 
 ## Limites de segurança e limitações conhecidas

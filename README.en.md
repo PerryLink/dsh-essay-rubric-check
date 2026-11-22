@@ -11,6 +11,8 @@
 
 A rubric scoring-sheet checker for teaching researchers, Chinese-language teachers, and marking teams: it reads the student header plus one row per criterion, checks completeness, arithmetic, quotation evidence, criterion-number uniqueness, and sheet ownership, and lists differences without deciding anything for the reviewer.
 
+Last verified on DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Install](#three-step-setup) · [Configuration](#configuration) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -270,7 +272,7 @@ No. It registers exactly one tool, `essay_rubric_check`, and provides no service
 - **`ER-002` fires on a score equal to the maximum.** Equality is allowed; a finding means the score is larger.
 - **`ER-005` fires on two rows for one dimension.** Band rows within a dimension are legitimate — number them apart.
 - **The plugin installs but the tool never appears.** Check that `main` resolves to `lib/index.mjs` and that `pnpm run build` produced it; a wrong `main` makes the loader skip the entry silently.
-- **`dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if your runtime sits outside it, grant an explicit exemption: `dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.10 --dsh-version <runtime> --accept-risk`.
+- **`dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if your runtime sits outside it, grant an explicit exemption: `dsh plugin --profile <name> allow-version dsh-essay-rubric-check@0.2.12 --dsh-version <runtime> --accept-risk`.
 - **`check` reports `manifest-peers` as failed.** The static checker compares against a hard-coded peer range that predates the 0.2 line. The runtime enforces peer compatibility at install time, so the declared range is the correct one; this is a known upstream issue in `dsh-plugin-dev`.
 
 ## Security boundaries & known limitations
