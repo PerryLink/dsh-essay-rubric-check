@@ -7,6 +7,8 @@
 
 # dsh-essay-rubric-check
 
+Current version `0.2.13`.
+
 **Turn one essay rubric sheet into a point-by-point list of what is inconsistent — which row, which field, what is missing, and how to fix it.**
 
 A rubric scoring-sheet checker for teaching researchers, Chinese-language teachers, and marking teams: it reads the student header plus one row per criterion, checks completeness, arithmetic, quotation evidence, criterion-number uniqueness, and sheet ownership, and lists differences without deciding anything for the reviewer.
